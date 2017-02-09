@@ -1,4 +1,6 @@
 function unixTimeLoad() {
+
+
   var stopClock = false;
   $(".clockDiv").mouseover(function () {
     stopClock = true;
@@ -16,17 +18,28 @@ function unixTimeLoad() {
       var getDate = new Date();
       var unixTime = Math.floor(getDate.getTime() / 1000.0);
       $("#unixTimeClock").html(unixTime);
-      var utcTime = getDate.toUTCString().slice(0, -4);;
-      console.log(utcTime);
+      var utcTime = getDate.toUTCString().slice(0, -4);
       $("#utcTimeClock").html(utcTime);
 
 
     }
   }, 1000);
 
-
-  $('#datetimepicker10').datetimepicker({
-    viewMode: 'years',
-    format: 'MM/YYYY'
+  $('.convertToDateString').click(function(){
+    console.log()
   });
+
+}
+
+
+function unixToUTC(){
+    console.log('click to convert');
+
+    var unixtime = $("#unixInput").val()*1000;
+    console.log(unixtime);
+    var utcString = new Date(unixtime).toUTCString().slice(0, -4);
+    console.log(utcString);
+    console.log('Converting to date string');
+    $("#utcResult").html(utcString);
+
 }
