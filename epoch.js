@@ -1,5 +1,11 @@
 function unixTimeLoad() {
 
+    //On page load set the clocks correct
+    var getDate = new Date();
+    var unixTime = Math.floor(getDate.getTime() / 1000.0);
+    $("#unixTimeClock").html(unixTime);
+    var utcTime = getDate.toUTCString().slice(0, -4);
+    $("#utcTimeClock").html(utcTime);
 
   var stopClock = false;
   $(".clockDiv").mouseover(function () {
@@ -42,4 +48,10 @@ function unixToUTC(){
     console.log('Converting to date string');
     $("#utcResult").html(utcString);
 
+}
+
+function utcToUNIX(){
+    var utcInput = $("#utcInput").val();
+    var unixNumeric = Math.round(new Date(utcInput).getTime()/1000);
+    $("#unixResult").html(unixNumeric);
 }
