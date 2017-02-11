@@ -36,7 +36,7 @@ function unixTimeLoad() {
         "timePicker": true,
         "timePicker24Hour": true,
         locale: {
-            format: 'MM/DD/YYYY HH:mm'
+            format: 'MM/DD/YYYY HH:mm:ss'
         }
     });
 
